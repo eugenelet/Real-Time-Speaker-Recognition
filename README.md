@@ -5,7 +5,9 @@ This is a speaker recognition system built mainly for conference where multiple 
 We've used a few libraries for this work. The libraries we used includes:
 ### OpenAL
 > ALC version: 1.1
+
 ### Qt
 > Qt version 5.7.1
+
 ### HTK
 > HTK version 3.4.1
