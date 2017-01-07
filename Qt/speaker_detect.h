@@ -50,6 +50,7 @@ void generateHmmList();
 /*Wrap up of Train and Test*/
 void trainData();
 void testData();
+
 /*Extract Current Speaker*/
 string extractTestSpeaker();
 
@@ -57,30 +58,15 @@ string extractTestSpeaker();
 void record(double record_time, string wavFile, bool timer_on);
 
 
-
+/*Testing Thread*/
 class Testing : public QThread {
 	Q_OBJECT
-
-// public slots:
 	void run() Q_DECL_OVERRIDE;
-    /*void startTest(const QString &parameter) {
-        while(1) {
-			// Notify main thread:
-	        string dirName = WAVdir + "test.wav";
-	        record(.3, dirName, false);
-	        testData();
-	        string speaker = extractTestSpeaker();
-            emit updateTestResult(QString::fromStdString(speaker));
-        }
-    }*/
-    // Define signal:
 signals:
     void updateTestResult(QString info);
 };
 
-
-
-
+/*Main UI*/
 class recognitionWidget: public QWidget{
 	Q_OBJECT
 	QThread testingThread;
@@ -107,7 +93,6 @@ class recognitionWidget: public QWidget{
 					*btn_ok_del,
 					*btn_record;
 		QLabel		*title,
-					// *notifications,
 					*online, 
 					*online2,
 					*online_n[5];

@@ -9,6 +9,8 @@ extern string HTKdir;
 extern vector<string> users;
 extern uint32_t num_users;
 
+
+/*Wrap up of test data training*/
 void trainData(){
     generateGrammar();
     generateMFCCConverter_train();
@@ -25,6 +27,7 @@ void trainData(){
     system("HERest -C HTKscripts/config_mfc -I HTKscripts/speakertrainmodels0.mlf -S HTKscripts/training.scp -H hmm2/macros -H hmm2/hmmdefs -M hmm3 HTKscripts/phonemodels0");
 }
 
+/*Wrap up of test data comparison*/
 void testData(){
     generateMFCCConverter_test();
     generateTestingData();

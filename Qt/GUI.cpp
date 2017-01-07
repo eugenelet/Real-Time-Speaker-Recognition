@@ -1,16 +1,17 @@
 #include "speaker_detect.h"
 
+// Destination Directories
 string WAVdir = "Wav/";
 string MFCCdir = "MFCC/";
 string hmmTrainDir = "hmm0/";
 string HTKdir = "HTKscripts/";
 
-
+// Users and info
 vector<string> users;
 uint32_t num_users;
-
 int people=0;
 
+// Notifications
 QLabel *notifications;
 QLabel *record_notifications;
 
@@ -32,7 +33,7 @@ void Testing::run(){
 }
 
 
-/*Update Test result from worker Thread*/
+/*Update Test result from testing Thread*/
 void recognitionWidget::onUpdateTestResult(QString info) {
     // Processing code
     if(info != "sil")
@@ -42,7 +43,7 @@ void recognitionWidget::onUpdateTestResult(QString info) {
 
 }
 
-
+/*Add users to Database*/
 void recognitionWidget::add()
 {
     lineEdit_Add->show();
@@ -52,6 +53,7 @@ void recognitionWidget::add()
 	lineEdit_Add->selectAll(); 
 }
 
+/*Delete users from database*/
 void recognitionWidget::del()
 {
 	lineEdit_Del->show();
@@ -61,7 +63,7 @@ void recognitionWidget::del()
 	lineEdit_Del->selectAll();   
 }
 
-
+/*Confirm addition of user*/
 void recognitionWidget::ok()
 {
 	if(people==5)
@@ -114,6 +116,7 @@ void recognitionWidget::ok()
 	lineEdit_Add->hide();
 }
 
+/*Confirm deletion of user*/
 void recognitionWidget::ok_del()
 {
 	if (people==0)
@@ -144,6 +147,7 @@ void recognitionWidget::ok_del()
 	lineEdit_Del->hide();
 }
 
+/*Prepare training dataset for background silence*/
 void recognitionWidget::initializeSil(){
 	for(int i=0; i<users.size(); i++)
 		if(users[i] == "sil")
@@ -159,9 +163,10 @@ void recognitionWidget::initializeSil(){
     notifications->setText(" ");
 }
 
-
+/*Begin testing/conference*/
 void recognitionWidget::startTesting()
 {
+	/*Stop conference if conference is in progress*/
 	if(isTesting){
 		isTesting = false;
 		btn_start->setText("Start Conference");
@@ -170,6 +175,7 @@ void recognitionWidget::startTesting()
 		return;
 	}
 
+	/*Start conference as usual*/
 	btn_start->setText("Stop Conference");
 	btn_add->hide();
 	btn_del->hide();
@@ -179,6 +185,7 @@ void recognitionWidget::startTesting()
     /*Train data of new users*/
     trainData();	
 
+    /*Initialize testing thread*/
     Testing *testThread = new Testing;
     connect(testThread, &Testing::updateTestResult, this, &recognitionWidget::onUpdateTestResult);
     connect(testThread, &Testing::finished, testThread, &QObject::deleteLater);
@@ -186,7 +193,7 @@ void recognitionWidget::startTesting()
     isTesting = true;
 }
 
-
+/*Constructor of main UI*/
 recognitionWidget::recognitionWidget()
 {
 

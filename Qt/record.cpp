@@ -73,7 +73,7 @@ void countdownTimer(time_t &currentTime, time_t &lastTime){
         string notifications_tmp = "Starting capture in " + to_string(i) + "...";
         record_notifications->setText(QString::fromStdString(notifications_tmp));
         record_notifications->repaint();
-        usleep(100000); 
+        usleep(500000); 
     } 
     string notifications_tmp = "Recording...";
     record_notifications->setText(QString::fromStdString(notifications_tmp));

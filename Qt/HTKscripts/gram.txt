@@ -1,2 +1,2 @@
-$speaker = mike | gene | teee | sil;
+$speaker = gene | mike | sil;
 ($speaker)

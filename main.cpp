@@ -11,23 +11,7 @@ string hmmTrainDir = "hmm0/";
 string HTKdir = "HTKscripts/";
 
 int main(int argc, char** argv){
-
-    /*if ( (argc < 2) || (strcmp(argv[1],"-h") == 0) ) { 
-          cerr << "usage: ./output [cell library] [input set] " << endl;
-          exit(1);
-    }*/ 
     UI();
-
-
-    /*TRAINING*/
-    // trainData();
-    /*TESTING*/
-    // testData();
-
-    // string speaker = extractTestSpeaker();
-
-    // cout << speaker << endl;
-
     return 0;
 }
 
