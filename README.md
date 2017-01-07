@@ -5,22 +5,24 @@ This is a speaker recognition system built mainly for conference where multiple 
 We've used a few libraries for this work. The libraries we used includes:
 ### Libraries
 #### OpenAL
-ALC version: 1.1
+> ALC version: 1.1
 
 #### Qt
-Qt version 5.7.1
+> Qt version 5.7.1
 
 #### HTK
-HTK version 3.4.1
+> HTK version 3.4.1
 
 ### Environment
 #### Architecture
-x86_64 GNU/Linux
+> x86_64 GNU/Linux
 
 #### Compiler
-gcc version 6.2.1 20160830 (GCC)
+> gcc version 6.2.1 20160830 (GCC)
 
 ## Installation
 > qmake -project
+
 > qmake
+
 > make
