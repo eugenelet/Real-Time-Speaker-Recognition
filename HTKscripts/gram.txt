@@ -1,2 +1,0 @@
-$speaker = Eugene_ | Clap_ | sil_;
-($speaker)

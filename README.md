@@ -21,6 +21,8 @@ We've used a few libraries for this work. The libraries we used includes:
 > gcc version 6.2.1 20160830 (GCC)
 
 ## Installation
+The main development would be in the **Qt** directory.
+The file in **CLI** directory is the CLI version of this work.
 > qmake -project
 
 > qmake
