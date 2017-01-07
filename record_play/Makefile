@@ -2,7 +2,7 @@ RCS = $(wildcard *.cpp)
 PROGS = $(patsubst %.cpp,%,$(SRCS))
 OBJS = $(SRCS:.cpp=.o)
 TEMPS = $(SRCS:.cpp=.txt)
-SRC = main.cpp
+SRC = playWav.cpp
 CFLAGS = -O3
 LDFLAGS = -lalut -lopenal
 OUT = record

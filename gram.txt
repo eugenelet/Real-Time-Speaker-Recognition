@@ -1,2 +1,0 @@
-$speaker = Eugene_ | Mike_;
-($speaker)
